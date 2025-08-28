@@ -128,19 +128,19 @@ Where:
 - $A_{footprint}$ = Footprint area (m²)
 
 ### 2. Obstacle Clearance Distance
-\[
+$$
 d_{clearance} = \sqrt{(x_{building} - x_{vehicle})^2 + (y_{building} - y_{vehicle})^2 + (z_{building} - z_{vehicle})^2}
-\]
+$$
 
 ### 3. Building Shadow Effects
-\[
+$$
 \text{shadow\_length} = h \times \tan(\text{solar\_elevation})
-\]
+$$
 
 ### 4. Urban Canyon Effects
-\[
+$$
 \text{canyon\_ratio} = \frac{h_{avg}}{w_{street}}
-\]
+$$
 
 ---
 

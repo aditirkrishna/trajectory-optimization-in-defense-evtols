@@ -91,45 +91,45 @@ tile_id,latitude,longitude,altitude_m,wind_speed_mps,wind_dir_deg,turbulence_int
 ## Mathematical Models
 
 ### 1. Wind Vector Components
-\[
+$$
 u = V \cos(\theta), \quad v = V \sin(\theta)
-\]
+$$
 
 Where:
-- \(u, v\) = East and North wind components (m/s)
-- \(V\) = Wind speed (m/s)
-- \(\theta\) = Wind direction (degrees from North)
+- $u, v$ = East and North wind components (m/s)
+- $V$ = Wind speed (m/s)
+- $\theta$ = Wind direction (degrees from North)
 
 ### 2. Wind Shear Model
-\[
+$$
 V(z) = V_0 \left(\frac{z}{z_0}\right)^\alpha
-\]
+$$
 
 Where:
-- \(V(z)\) = Wind speed at height z
-- \(V_0\) = Reference wind speed
-- \(z_0\) = Reference height
-- \(\alpha\) = Wind shear exponent
+- $V(z)$ = Wind speed at height z
+- $V_0$ = Reference wind speed
+- $z_0$ = Reference height
+- $\alpha$ = Wind shear exponent
 
 ### 3. Turbulence Intensity
-\[
+$$
 TI = \frac{\sigma_v}{V_{mean}}
-\]
+$$
 
 Where:
-- \(TI\) = Turbulence intensity
-- \(\sigma_v\) = Standard deviation of wind speed
-- \(V_{mean}\) = Mean wind speed
+- $TI$ = Turbulence intensity
+- $\sigma_v$ = Standard deviation of wind speed
+- $V_{mean}$ = Mean wind speed
 
 ### 4. Wind Power Density
-\[
+$$
 P = \frac{1}{2} \rho V^3
-\]
+$$
 
 Where:
-- \(P\) = Wind power density (W/m²)
-- \(\rho\) = Air density (kg/m³)
-- \(V\) = Wind speed (m/s)
+- $P$ = Wind power density (W/m²)
+- $\rho$ = Air density (kg/m³)
+- $V$ = Wind speed (m/s)
 
 ---
 

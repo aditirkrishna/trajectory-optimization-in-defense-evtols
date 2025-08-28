@@ -102,47 +102,47 @@ waypoint_id,mission_id,latitude,longitude,altitude_m,time_window_start_s,time_wi
 ## Mathematical Models
 
 ### 1. Waypoint Distance Calculation
-\[
+$$
 d_{wp} = R_{earth} \cdot \arccos(\sin(\phi_1)\sin(\phi_2) + \cos(\phi_1)\cos(\phi_2)\cos(\Delta\lambda))
-\]
+$$
 
 Where:
-- \(d_{wp}\) = Distance between waypoints (m)
-- \(R_{earth}\) = Earth radius (6,371,000m)
-- \(\phi_1, \phi_2\) = Waypoint latitudes (radians)
-- \(\Delta\lambda\) = Longitude difference (radians)
+- $d_{wp}$ = Distance between waypoints (m)
+- $R_{earth}$ = Earth radius (6,371,000m)
+- $\phi_1, \phi_2$ = Waypoint latitudes (radians)
+- $\Delta\lambda$ = Longitude difference (radians)
 
 ### 2. Time Window Analysis
-\[
+$$
 T_{available} = t_{end} - t_{start}
-\]
-\[
+$$
+$$
 T_{required} = \frac{d_{wp}}{v_{avg}}
-\]
+$$
 
 Where:
-- \(T_{available}\) = Available time window (s)
-- \(T_{required}\) = Required travel time (s)
-- \(v_{avg}\) = Average velocity (m/s)
+- $T_{available}$ = Available time window (s)
+- $T_{required}$ = Required travel time (s)
+- $v_{avg}$ = Average velocity (m/s)
 
 ### 3. Altitude Profile Optimization
-\[
+$$
 h_{optimal} = h_{min} + \frac{h_{max} - h_{min}}{2} \cdot (1 + \cos(\frac{\pi \cdot d}{d_{total}}))
-\]
+$$
 
 Where:
-- \(h_{optimal}\) = Optimal altitude (m)
-- \(h_{min}, h_{max}\) = Minimum and maximum altitudes (m)
-- \(d\) = Distance along route (m)
-- \(d_{total}\) = Total route distance (m)
+- $h_{optimal}$ = Optimal altitude (m)
+- $h_{min}, h_{max}$ = Minimum and maximum altitudes (m)
+- $d$ = Distance along route (m)
+- $d_{total}$ = Total route distance (m)
 
 ### 4. Timing Constraint Satisfaction
-\[
+$$
 P_{timing} = \begin{cases}
 1 & \text{if } t_{arrival} \in [t_{start}, t_{end}] \\
 0 & \text{otherwise}
 \end{cases}
-\]
+$$
 
 ---
 

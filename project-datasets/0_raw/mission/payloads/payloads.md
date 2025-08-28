@@ -120,50 +120,50 @@ payload_id,mission_id,type,mass_kg,cg_x_m,cg_y_m,cg_z_m,volume_m3,notes
 ## Mathematical Models
 
 ### 1. Center of Gravity Calculation
-\[
+$$
 CG_{total} = \frac{\sum_{i=1}^{n} m_i \cdot CG_i}{\sum_{i=1}^{n} m_i}
-\]
+$$
 
 Where:
-- \(CG_{total}\) = Total center of gravity
-- \(m_i\) = Mass of component i (kg)
-- \(CG_i\) = Center of gravity of component i (m)
+- $CG_{total}$ = Total center of gravity
+- $m_i$ = Mass of component i (kg)
+- $CG_i$ = Center of gravity of component i (m)
 
 ### 2. Mass Distribution Analysis
-\[
+$$
 I_{xx} = \sum_{i=1}^{n} m_i \cdot (y_i^2 + z_i^2)
-\]
-\[
+$$
+$$
 I_{yy} = \sum_{i=1}^{n} m_i \cdot (x_i^2 + z_i^2)
-\]
-\[
+$$
+$$
 I_{zz} = \sum_{i=1}^{n} m_i \cdot (x_i^2 + y_i^2)
-\]
+$$
 
 Where:
-- \(I_{xx}, I_{yy}, I_{zz}\) = Moments of inertia (kg·m²)
-- \(x_i, y_i, z_i\) = Component positions (m)
+- $I_{xx}, I_{yy}, I_{zz}$ = Moments of inertia (kg·m²)
+- $x_i, y_i, z_i$ = Component positions (m)
 
 ### 3. Stability Analysis
-\[
+$$
 SM = \frac{CG_{aft} - CG_{neutral}}{MAC} \cdot 100\%
-\]
+$$
 
 Where:
-- \(SM\) = Static margin (%)
-- \(CG_{aft}\) = Aft center of gravity limit (m)
-- \(CG_{neutral}\) = Neutral point (m)
-- \(MAC\) = Mean aerodynamic chord (m)
+- $SM$ = Static margin (%)
+- $CG_{aft}$ = Aft center of gravity limit (m)
+- $CG_{neutral}$ = Neutral point (m)
+- $MAC$ = Mean aerodynamic chord (m)
 
 ### 4. Payload Density
-\[
+$$
 \rho_{payload} = \frac{m_{payload}}{V_{payload}}
-\]
+$$
 
 Where:
-- \(\rho_{payload}\) = Payload density (kg/m³)
-- \(m_{payload}\) = Payload mass (kg)
-- \(V_{payload}\) = Payload volume (m³)
+- $\rho_{payload}$ = Payload density (kg/m³)
+- $m_{payload}$ = Payload mass (kg)
+- $V_{payload}$ = Payload volume (m³)
 
 ---
 

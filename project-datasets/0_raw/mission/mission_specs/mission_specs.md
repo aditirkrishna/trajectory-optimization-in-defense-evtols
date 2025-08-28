@@ -112,41 +112,41 @@ mission_id,start_lat,start_lon,end_lat,end_lon,altitude_m,max_exposure_time_s,mi
 ## Mathematical Models
 
 ### 1. Mission Distance Calculation
-\[
+$$
 D_{mission} = R_{earth} \cdot \arccos(\sin(\phi_1)\sin(\phi_2) + \cos(\phi_1)\cos(\phi_2)\cos(\Delta\lambda))
-\]
+$$
 
 Where:
-- \(D_{mission}\) = Mission distance (m)
-- \(R_{earth}\) = Earth radius (6,371,000m)
-- \(\phi_1, \phi_2\) = Start and end latitudes (radians)
-- \(\Delta\lambda\) = Longitude difference (radians)
+- $D_{mission}$ = Mission distance (m)
+- $R_{earth}$ = Earth radius (6,371,000m)
+- $\phi_1, \phi_2$ = Start and end latitudes (radians)
+- $\Delta\lambda$ = Longitude difference (radians)
 
 ### 2. Exposure Risk Assessment
-\[
+$$
 R_{exposure} = \frac{t_{exposure}}{t_{max}} \cdot \sum_{i=1}^{n} P_{threat_i}
-\]
+$$
 
 Where:
-- \(R_{exposure}\) = Exposure risk
-- \(t_{exposure}\) = Actual exposure time (s)
-- \(t_{max}\) = Maximum allowed exposure time (s)
-- \(P_{threat_i}\) = Threat probability for threat i
+- $R_{exposure}$ = Exposure risk
+- $t_{exposure}$ = Actual exposure time (s)
+- $t_{max}$ = Maximum allowed exposure time (s)
+- $P_{threat_i}$ = Threat probability for threat i
 
 ### 3. Standoff Safety Margin
-\[
+$$
 S_{safety} = \frac{d_{actual} - d_{min}}{d_{min}} \cdot 100\%
-\]
+$$
 
 Where:
-- \(S_{safety}\) = Safety margin percentage
-- \(d_{actual}\) = Actual distance to threat (m)
-- \(d_{min}\) = Minimum standoff distance (m)
+- $S_{safety}$ = Safety margin percentage
+- $d_{actual}$ = Actual distance to threat (m)
+- $d_{min}$ = Minimum standoff distance (m)
 
 ### 4. Mission Success Probability
-\[
+$$
 P_{success} = P_{navigation} \cdot P_{threat\_avoidance} \cdot P_{system\_reliability}
-\]
+$$
 
 ---
 
