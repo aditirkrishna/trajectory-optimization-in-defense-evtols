@@ -30,8 +30,8 @@ The dataset includes **thrust, torque, and efficiency** under each condition.
 ## Assumptions
 1. **Aerodynamic Model**
    - Rotor modeled with non-dimensional coefficients:
-     - Thrust coefficient: \( C_T = 0.12 \)
-     - Torque coefficient: \( C_Q = 0.05 \)
+     - Thrust coefficient: $ C_T = 0.12 $
+- Torque coefficient: $ C_Q = 0.05 $
    - Assumed constant across operating conditions (first-order approximation).
 
 2. **Air Density**
@@ -52,39 +52,39 @@ The dataset includes **thrust, torque, and efficiency** under each condition.
 ## Mathematical Derivations
 
 ### 1. Thrust
-\[
+$$
 T = C_T \cdot \rho \cdot n^2 \cdot D^4
-\]
+$$
 
 Where:  
-- \( T \): Thrust [N]  
-- \( C_T \): Thrust coefficient (0.12)  
-- \( \rho \): Air density [kg/m³]  
-- \( n \): Rotational speed [rev/s]  
-- \( D \): Rotor diameter [m]  
+- $ T $: Thrust [N]  
+- $ C_T $: Thrust coefficient (0.12)  
+- $ \rho $: Air density [kg/m³]  
+- $ n $: Rotational speed [rev/s]  
+- $ D $: Rotor diameter [m]  
 
 ---
 
 ### 2. Torque
-\[
+$$
 Q = C_Q \cdot \rho \cdot n^2 \cdot D^5
-\]
+$$
 
 Where:  
-- \( Q \): Torque [N·m]  
-- \( C_Q \): Torque coefficient (0.05)  
+- $ Q $: Torque [N·m]  
+- $ C_Q $: Torque coefficient (0.05)  
 
 ---
 
 ### 3. Efficiency
-\[
+$$
 \eta(rpm) = \eta_{max} - k \cdot (rpm - rpm_{opt})^2
-\]
+$$
 
 Where:  
-- \( \eta_{max} = 0.80 \)  
-- \( rpm_{opt} = 3500 \)  
-- \( k \): small quadratic penalty constant (~1e-7)
+- $ \eta_{max} = 0.80 $  
+- $ rpm_{opt} = 3500 $  
+- $ k $: small quadratic penalty constant (~1e-7)
 
 ---
 

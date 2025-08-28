@@ -86,69 +86,69 @@ Below are the standard formulas used to compute fields and how to apply derating
 
 ### 4.1 Pack energy (Wh)
 If `capacity_Ah` refers to pack-level capacity and `pack_voltage_V` is pack nominal voltage:
-\[
+$$
 E_\text{pack} \;[\mathrm{Wh}] = \text{capacity}_{\mathrm{Ah}} \times \text{pack\_voltage}_V
-\]
+$$
 
 If capacity is per cell and you have `N_{series}` cells:
-\[
+$$
 E_\text{pack} = \text{capacity}_{\mathrm{Ah}} \times (\text{nominal\_cell\_voltage}_V \times N_{series})
-\]
+$$
 
 ### 4.2 Current & power
 - Current at a given C-rate:
-\[
+$$
 I\; [\mathrm{A}] = \mathrm{capacity}_{\mathrm{Ah}} \times \text{C\_rate}
-\]
+$$
 - Electrical power drawn from pack:
-\[
+$$
 P_\text{elec}\; [\mathrm{W}] = V_\text{pack} \times I
-\]
-- Mechanical power required by motors \(P_{mech}\) is converted to electrical:
-\[
+$$
+- Mechanical power required by motors $P_{mech}$ is converted to electrical:
+$$
 P_\text{elec} = \frac{P_{mech}}{\eta_\text{motor} \cdot \eta_\text{ESC}} / (\eta_\text{battery\_rt})
-\]
-where \(\eta_\text{battery\_rt}\) is round-trip battery efficiency (accounting for conversion losses).
+$$
+where $\eta_\text{battery\_rt}$ is round-trip battery efficiency (accounting for conversion losses).
 
 ### 4.3 Voltage sag model (1st order)
-Open-circuit voltage \(V_{oc}\) varies with SoC; simple linearization:
-\[
+Open-circuit voltage $V_{oc}$ varies with SoC; simple linearization:
+$$
 V_{load}(t) = V_{oc}(\text{SoC}) - I(t) \cdot R_{int}
-\]
-- \(R_{int}\): internal resistance (Ω)
-- \(I(t)\): instantaneous current draw
+$$
+- $R_{int}$: internal resistance (Ω)
+- $I(t)$: instantaneous current draw
 
 ### 4.4 Energy consumed over time (integration)
-For a time-step \(\Delta t\) seconds:
-\[
+For a time-step $\Delta t$ seconds:
+$$
 \Delta Q \;[\mathrm{Ah}] = I \times \frac{\Delta t}{3600}
-\]
+$$
 SoC update (∞%):
-\[
+$$
 \text{SoC}_{t+\Delta t} = \text{SoC}_{t} - \frac{\Delta Q}{\text{capacity\_Ah}} \times 100
-\]
+$$
 
-Energy consumed (Wh) during \(\Delta t\):
-\[
+Energy consumed (Wh) during $\Delta t$:
+$$
 \Delta E = P_\text{elec} \times \frac{\Delta t}{3600}
-\]
+$$
 
 ### 4.5 Temperature and C-rate derating (synthetic model used)
 A simple, explainable derating function (used in the earlier generator):
-\[
+$$
 \text{cap\_factor}(T,C) = \max\!\left(0.5,\; \left(1 - \frac{|T-20|}{100}\right)\cdot (1 - 0.05\cdot (C-1)) \right)
-\]
-\[
+$$
+$$
 \text{capacity\_Ah} = \text{capacity\_base} \times \text{cap\_factor}
-\]
+$$
 This is **synthetic and conservative**: it reduces capacity gently with low/high temperature and more strongly with high C-rate.
 
 **Alternative physics-based model** (optional; recommended for realism):
 - Use Arrhenius relationship for rate-limited processes, or manufacturer-provided derating curves:
-\[
+$$
 \text{capacity}(T) \approx \text{capacity}_{20^\circ C} \cdot \left(1 - a \cdot (20 - T)\right) \quad \text{for } T < 20^\circ C
-\]
-with coefficient \(a\) determined experimentally.
+$$
+with coefficient $a$ determined experimentally.
 
 ---
 

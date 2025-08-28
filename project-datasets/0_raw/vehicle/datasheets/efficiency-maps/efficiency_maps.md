@@ -67,39 +67,39 @@ rotor_id,rpm,thrust_N,power_W,efficiency_percent,notes
 ## Mathematical Models
 
 ### 1. Efficiency Definition
-\[
+$$
 \eta = \frac{T \cdot v_{induced}}{P_{electrical}} \times 100\%
-\]
+$$
 
 Where:
-- \(T\) = Thrust (N)
-- \(v_{induced}\) = Induced velocity (m/s)
-- \(P_{electrical}\) = Electrical power input (W)
+- $T$ = Thrust (N)
+- $v_{induced}$ = Induced velocity (m/s)
+- $P_{electrical}$ = Electrical power input (W)
 
 ### 2. Thrust Scaling (Momentum Theory)
-\[
+$$
 T = 2\rho A v_{induced}^2
-\]
+$$
 
 Where:
-- \(\rho\) = Air density (kg/m³)
-- \(A\) = Rotor disk area (m²)
-- \(v_{induced}\) = Induced velocity (m/s)
+- $\rho$ = Air density (kg/m³)
+- $A$ = Rotor disk area (m²)
+- $v_{induced}$ = Induced velocity (m/s)
 
 ### 3. Power Scaling
-\[
+$$
 P_{induced} = T \cdot v_{induced}
-\]
-\[
+$$
+$$
 P_{profile} = \frac{1}{8} \rho A C_d \Omega^3 R^3
-\]
+$$
 
 Where:
-- \(P_{induced}\) = Induced power
-- \(P_{profile}\) = Profile power
-- \(C_d\) = Profile drag coefficient
-- \(\Omega\) = Angular velocity (rad/s)
-- \(R\) = Rotor radius (m)
+- $P_{induced}$ = Induced power
+- $P_{profile}$ = Profile power
+- $C_d$ = Profile drag coefficient
+- $\Omega$ = Angular velocity (rad/s)
+- $R$ = Rotor radius (m)
 
 ### 4. Efficiency Peak Characteristics
 - **Peak Efficiency**: Typically occurs at 70-80% of maximum RPM

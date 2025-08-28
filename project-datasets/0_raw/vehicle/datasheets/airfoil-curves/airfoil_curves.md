@@ -37,14 +37,14 @@ airfoil,alpha_deg,Re,M,Cl,Cd,Cm,source
 
 ## Assumptions
 1. **Thin Airfoil Theory** for lift slope:
-   - \( \frac{dCl}{d\alpha} \approx 2\pi \) per radian.
+   - $ \frac{dCl}{d\alpha} \approx 2\pi $ per radian.
    - Adjusted slope for cambered and blended airfoils.
 
 2. **Drag Polar Approximation**:
    - Quadratic form:
-     \[
+     $$
      Cd = Cd_{min} + k (Cl - Cl_{opt})^2
-     \]
+     $$
    - Accounts for induced drag and profile drag.
 
 3. **Moment Coefficient (Cm)**:
@@ -62,34 +62,34 @@ airfoil,alpha_deg,Re,M,Cl,Cd,Cm,source
 ## Mathematical Derivations
 
 ### 1. Lift Coefficient
-\[
+$$
 Cl(\alpha) = Cl_0 + a (\alpha - \alpha_{L=0})
-\]
+$$
 
 Where:
-- \( Cl_0 \): baseline lift at zero AoA,
-- \( a \): lift slope (per rad),
-- \( \alpha \): angle of attack [deg],
-- \( \alpha_{L=0} \): zero-lift AoA.
+- $ Cl_0 $: baseline lift at zero AoA,
+- $ a $: lift slope (per rad),
+- $ \alpha $: angle of attack [deg],
+- $ \alpha_{L=0} $: zero-lift AoA.
 
 ---
 
 ### 2. Drag Coefficient
-\[
+$$
 Cd = Cd_{min} + k (Cl - Cl_{opt})^2
-\]
+$$
 
 Where:
-- \( Cd_{min} \): minimum drag,
-- \( k \): induced drag factor,
-- \( Cl_{opt} \): lift coefficient at minimum drag.
+- $ Cd_{min} $: minimum drag,
+- $ k $: induced drag factor,
+- $ Cl_{opt} $: lift coefficient at minimum drag.
 
 ---
 
 ### 3. Moment Coefficient
-\[
+$$
 Cm = Cm_0
-\]
+$$
 
 Constant for each airfoil.
 
