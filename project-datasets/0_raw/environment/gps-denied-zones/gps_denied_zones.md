@@ -99,31 +99,31 @@ zone_id,polygon_coordinates,min_alt_m,max_alt_m,start_time,end_time,signal_loss_
 ## Mathematical Models
 
 ### 1. GPS Signal Strength Model
-\[
+$$
 P_{received} = P_{transmitted} - L_{path} - L_{obstruction} - L_{interference}
-\]
+$$
 
 Where:
-- \(P_{received}\) = Received signal power (dBm)
-- \(P_{transmitted}\) = Transmitted signal power (dBm)
-- \(L_{path}\) = Path loss (dB)
-- \(L_{obstruction}\) = Obstruction loss (dB)
-- \(L_{interference}\) = Interference loss (dB)
+- $P_{received}$ = Received signal power (dBm)
+- $P_{transmitted}$ = Transmitted signal power (dBm)
+- $L_{path}$ = Path loss (dB)
+- $L_{obstruction}$ = Obstruction loss (dB)
+- $L_{interference}$ = Interference loss (dB)
 
 ### 2. Signal-to-Noise Ratio
-\[
+$$
 SNR = \frac{P_{signal}}{P_{noise} + P_{interference}}
-\]
+$$
 
 ### 3. Position Dilution of Precision (PDOP)
-\[
+$$
 PDOP = \sqrt{\sigma_x^2 + \sigma_y^2 + \sigma_z^2}
-\]
+$$
 
 ### 4. GPS Accuracy Model
-\[
+$$
 \sigma_{position} = PDOP \times \sigma_{pseudorange}
-\]
+$$
 
 ---
 

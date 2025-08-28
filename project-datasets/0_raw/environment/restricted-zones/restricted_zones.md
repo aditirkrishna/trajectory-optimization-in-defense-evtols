@@ -91,24 +91,24 @@ zone_id,zone_type,polygon_coordinates,min_alt_m,max_alt_m,start_time,end_time,no
 ## Mathematical Models
 
 ### 1. Zone Intersection Detection
-\[
+$$
 \text{intersection} = \text{polygon\_contains}(zone\_polygon, trajectory\_point)
-\]
+$$
 
 ### 2. Altitude Compliance Check
-\[
+$$
 \text{compliant} = (altitude \geq min\_alt) \land (altitude \leq max\_alt)
-\]
+$$
 
 ### 3. Time Window Validation
-\[
+$$
 \text{active} = (current\_time \geq start\_time) \land (current\_time \leq end\_time)
-\]
+$$
 
 ### 4. Zone Clearance Distance
-\[
+$$
 d_{clearance} = \min_{p \in zone\_boundary} \text{distance}(vehicle\_position, p)
-\]
+$$
 
 ---
 

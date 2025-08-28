@@ -83,47 +83,47 @@ tile_id,latitude,longitude,altitude_m,temperature_C,air_density_kgm3,notes
 ## Mathematical Models
 
 ### 1. Standard Atmosphere Model
-\[
+$$
 T(h) = T_0 - L \cdot h
-\]
+$$
 
 Where:
-- \(T(h)\) = Temperature at height h (°C)
-- \(T_0\) = Sea level temperature (°C)
-- \(L\) = Lapse rate (°C/m)
-- \(h\) = Height above sea level (m)
+- $T(h)$ = Temperature at height h (°C)
+- $T_0$ = Sea level temperature (°C)
+- $L$ = Lapse rate (°C/m)
+- $h$ = Height above sea level (m)
 
 ### 2. Air Density Calculation
-\[
+$$
 \rho = \frac{P}{R \cdot T}
-\]
+$$
 
 Where:
-- \(\rho\) = Air density (kg/m³)
-- \(P\) = Atmospheric pressure (Pa)
-- \(R\) = Specific gas constant (J/kg·K)
-- \(T\) = Absolute temperature (K)
+- $\rho$ = Air density (kg/m³)
+- $P$ = Atmospheric pressure (Pa)
+- $R$ = Specific gas constant (J/kg·K)
+- $T$ = Absolute temperature (K)
 
 ### 3. Pressure Altitude Relationship
-\[
+$$
 P(h) = P_0 \left(1 - \frac{L \cdot h}{T_0}\right)^{\frac{g}{L \cdot R}}
-\]
+$$
 
 Where:
-- \(P(h)\) = Pressure at height h (Pa)
-- \(P_0\) = Sea level pressure (Pa)
-- \(g\) = Gravitational acceleration (m/s²)
+- $P(h)$ = Pressure at height h (Pa)
+- $P_0$ = Sea level pressure (Pa)
+- $g$ = Gravitational acceleration (m/s²)
 
 ### 4. Density Altitude
-\[
+$$
 \text{Density Altitude} = h + \frac{T - T_{std}}{L_{std}}
-\]
+$$
 
 Where:
-- \(h\) = Pressure altitude (m)
-- \(T\) = Actual temperature (°C)
-- \(T_{std}\) = Standard temperature (°C)
-- \(L_{std}\) = Standard lapse rate (°C/m)
+- $h$ = Pressure altitude (m)
+- $T$ = Actual temperature (°C)
+- $T_{std}$ = Standard temperature (°C)
+- $L_{std}$ = Standard lapse rate (°C/m)
 
 ---
 

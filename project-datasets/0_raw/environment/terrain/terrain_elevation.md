@@ -91,25 +91,25 @@ tile_id,latitude,longitude,elevation_m,slope_deg,roughness,notes
 
 ### 1. Elevation Interpolation
 For points between tiles, use bilinear interpolation:
-\[
+$$
 z(x,y) = \sum_{i=0}^{1} \sum_{j=0}^{1} z_{ij} \cdot w_{ij}(x,y)
-\]
+$$
 
 Where:
-- \(z_{ij}\) = Elevation at tile corners
-- \(w_{ij}\) = Bilinear weight functions
+- $z_{ij}$ = Elevation at tile corners
+- $w_{ij}$ = Bilinear weight functions
 
 ### 2. Slope Calculation
 Maximum slope within a tile:
-\[
+$$
 \text{slope} = \arctan\left(\sqrt{\left(\frac{\partial z}{\partial x}\right)^2 + \left(\frac{\partial z}{\partial y}\right)^2}\right)
-\]
+$$
 
 ### 3. Roughness Metric
 Terrain roughness as standard deviation of elevation:
-\[
+$$
 \text{roughness} = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (z_i - \bar{z})^2}
-\]
+$$
 
 ---
 
@@ -299,6 +299,3 @@ optimal_route = optimize_energy_route(terrain_data, waypoints)
 
 ---
 
-*Document Version: 1.0*  
-*Last Updated: 2025-01-27*  
-*Dataset Source: Synthetic terrain data based on Bangalore region characteristics*

@@ -118,14 +118,14 @@ building_id,latitude,longitude,height_m,footprint_area_m2,material_type,notes
 ## Mathematical Models
 
 ### 1. Building Volume Calculation
-\[
+$$
 V = h \times A_{footprint}
-\]
+$$
 
 Where:
-- \(V\) = Building volume (m³)
-- \(h\) = Building height (m)
-- \(A_{footprint}\) = Footprint area (m²)
+- $V$ = Building volume (m³)
+- $h$ = Building height (m)
+- $A_{footprint}$ = Footprint area (m²)
 
 ### 2. Obstacle Clearance Distance
 \[
@@ -307,7 +307,3 @@ path = navigate_urban_canyons(building_data, current_position, destination)
 3. Urban Navigation. (2019). *Urban Canyon Navigation for Autonomous Vehicles*. Navigation Systems.
 
 ---
-
-*Document Version: 1.0*  
-*Last Updated: 2025-01-27*  
-*Dataset Source: Synthetic building data based on Bangalore urban characteristics*
