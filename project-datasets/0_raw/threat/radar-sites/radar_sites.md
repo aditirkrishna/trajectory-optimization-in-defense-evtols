@@ -100,46 +100,46 @@ site_id,latitude,longitude,altitude_m,power_W,frequency_MHz,beamwidth_deg,range_
 ## Mathematical Models
 
 ### 1. Radar Range Equation
-\[
+$$
 R_{max} = \sqrt[4]{\frac{P_t G_t G_r \lambda^2 \sigma}{(4\pi)^3 S_{min}}}
-\]
+$$
 
 Where:
-- \(R_{max}\) = Maximum detection range (m)
-- \(P_t\) = Transmitted power (W)
-- \(G_t, G_r\) = Transmit and receive antenna gains
-- \(\lambda\) = Wavelength (m)
-- \(\sigma\) = Target radar cross-section (m²)
-- \(S_{min}\) = Minimum detectable signal (W)
+- $R_{max}$ = Maximum detection range (m)
+- $P_t$ = Transmitted power (W)
+- $G_t, G_r$ = Transmit and receive antenna gains
+- $\lambda$ = Wavelength (m)
+- $\sigma$ = Target radar cross-section (m²)
+- $S_{min}$ = Minimum detectable signal (W)
 
 ### 2. Detection Probability
-\[
+$$
 P_d = 1 - \left(\frac{1}{1 + \frac{SNR}{SNR_0}}\right)^N
-\]
+$$
 
 Where:
-- \(P_d\) = Detection probability
-- \(SNR\) = Signal-to-noise ratio
-- \(SNR_0\) = Threshold SNR
-- \(N\) = Number of pulses integrated
+- $P_d$ = Detection probability
+- $SNR$ = Signal-to-noise ratio
+- $SNR_0$ = Threshold SNR
+- $N$ = Number of pulses integrated
 
 ### 3. Radar Cross-Section (RCS)
-\[
+$$
 \sigma = \frac{4\pi A^2}{\lambda^2} \cdot \text{Reflection Coefficient}
-\]
+$$
 
 ### 4. Signal-to-Noise Ratio
-\[
+$$
 SNR = \frac{P_r}{P_n} = \frac{P_t G_t G_r \lambda^2 \sigma}{(4\pi)^3 R^4 kT B F}
-\]
+$$
 
 Where:
-- \(P_r\) = Received signal power (W)
-- \(P_n\) = Noise power (W)
-- \(k\) = Boltzmann constant
-- \(T\) = System temperature (K)
-- \(B\) = Bandwidth (Hz)
-- \(F\) = Noise figure
+- $P_r$ = Received signal power (W)
+- $P_n$ = Noise power (W)
+- $k$ = Boltzmann constant
+- $T$ = System temperature (K)
+- $B$ = Bandwidth (Hz)
+- $F$ = Noise figure
 
 ---
 

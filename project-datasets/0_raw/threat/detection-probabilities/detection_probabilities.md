@@ -94,44 +94,44 @@ threat_id,latitude,longitude,altitude_m,time_s,detection_prob,notes
 ## Mathematical Models
 
 ### 1. Combined Detection Probability
-\[
+$$
 P_{total} = 1 - \prod_{i=1}^{n} (1 - P_i)
-\]
+$$
 
 Where:
-- \(P_{total}\) = Total detection probability
-- \(P_i\) = Individual threat detection probability
-- \(n\) = Number of threats
+- $P_{total}$ = Total detection probability
+- $P_i$ = Individual threat detection probability
+- $n$ = Number of threats
 
 ### 2. Time-Dependent Detection
-\[
+$$
 P(t) = P_{max} \cdot \left(1 - e^{-\frac{t}{t_{characteristic}}}\right)
-\]
+$$
 
 Where:
-- \(P(t)\) = Detection probability at time t
-- \(P_{max}\) = Maximum detection probability
-- \(t_{characteristic}\) = Characteristic time constant
+- $P(t)$ = Detection probability at time t
+- $P_{max}$ = Maximum detection probability
+- $t_{characteristic}$ = Characteristic time constant
 
 ### 3. Distance-Based Detection
-\[
+$$
 P(d) = P_{max} \cdot e^{-\frac{d}{d_{characteristic}}}
-\]
+$$
 
 Where:
-- \(P(d)\) = Detection probability at distance d
-- \(P_{max}\) = Maximum detection probability
-- \(d_{characteristic}\) = Characteristic distance
+- $P(d)$ = Detection probability at distance d
+- $P_{max}$ = Maximum detection probability
+- $d_{characteristic}$ = Characteristic distance
 
 ### 4. Multi-Threat Integration
-\[
+$$
 P_{integrated} = \sum_{i=1}^{n} w_i \cdot P_i
-\]
+$$
 
 Where:
-- \(P_{integrated}\) = Integrated detection probability
-- \(w_i\) = Weight for threat i
-- \(P_i\) = Detection probability for threat i
+- $P_{integrated}$ = Integrated detection probability
+- $w_i$ = Weight for threat i
+- $P_i$ = Detection probability for threat i
 
 ---
 

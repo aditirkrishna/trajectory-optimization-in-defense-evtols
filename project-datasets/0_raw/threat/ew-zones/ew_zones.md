@@ -119,41 +119,41 @@ zone_id,polygon_coordinates,min_alt_m,max_alt_m,start_time,end_time,signal_degra
 ## Mathematical Models
 
 ### 1. Signal-to-Interference Ratio (SIR)
-\[
+$$
 SIR = \frac{P_{signal}}{P_{interference} + P_{noise}}
-\]
+$$
 
 Where:
-- \(P_{signal}\) = Signal power (W)
-- \(P_{interference}\) = Interference power (W)
-- \(P_{noise}\) = Noise power (W)
+- $P_{signal}$ = Signal power (W)
+- $P_{interference}$ = Interference power (W)
+- $P_{noise}$ = Noise power (W)
 
 ### 2. Jamming Effectiveness
-\[
+$$
 J/S = \frac{P_j G_j R_s^2}{P_s G_s R_j^2}
-\]
+$$
 
 Where:
-- \(J/S\) = Jamming-to-signal ratio
-- \(P_j, P_s\) = Jammer and signal power (W)
-- \(G_j, G_s\) = Jammer and signal antenna gains
-- \(R_j, R_s\) = Distances to jammer and signal source (m)
+- $J/S$ = Jamming-to-signal ratio
+- $P_j, P_s$ = Jammer and signal power (W)
+- $G_j, G_s$ = Jammer and signal antenna gains
+- $R_j, R_s$ = Distances to jammer and signal source (m)
 
 ### 3. Signal Degradation Model
-\[
+$$
 P_{received} = P_{transmitted} - L_{path} - L_{jamming} - L_{interference}
-\]
+$$
 
 ### 4. GPS Accuracy Degradation
-\[
+$$
 \sigma_{position} = \sigma_{baseline} \cdot (1 + \alpha \cdot J/S)
-\]
+$$
 
 Where:
-- \(\sigma_{position}\) = Position accuracy
-- \(\sigma_{baseline}\) = Baseline accuracy
-- \(\alpha\) = Degradation coefficient
-- \(J/S\) = Jamming-to-signal ratio
+- $\sigma_{position}$ = Position accuracy
+- $\sigma_{baseline}$ = Baseline accuracy
+- $\alpha$ = Degradation coefficient
+- $J/S$ = Jamming-to-signal ratio
 
 ---
 

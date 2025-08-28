@@ -120,41 +120,41 @@ patrol_id,vehicle_type,start_lat,start_lon,end_lat,end_lon,altitude_m,speed_mps,
 ## Mathematical Models
 
 ### 1. Patrol Coverage Area
-\[
+$$
 A_{coverage} = \pi \cdot R_{detection}^2 \cdot \frac{t_{patrol}}{t_{cycle}}
-\]
+$$
 
 Where:
-- \(A_{coverage}\) = Area covered by patrol
-- \(R_{detection}\) = Detection radius
-- \(t_{patrol}\) = Patrol duration
-- \(t_{cycle}\) = Patrol cycle time
+- $A_{coverage}$ = Area covered by patrol
+- $R_{detection}$ = Detection radius
+- $t_{patrol}$ = Patrol duration
+- $t_{cycle}$ = Patrol cycle time
 
 ### 2. Detection Probability
-\[
+$$
 P_{detection} = 1 - e^{-\lambda \cdot t_{exposure}}
-\]
+$$
 
 Where:
-- \(P_{detection}\) = Detection probability
-- \(\lambda\) = Detection rate
-- \(t_{exposure}\) = Exposure time
+- $P_{detection}$ = Detection probability
+- $\lambda$ = Detection rate
+- $t_{exposure}$ = Exposure time
 
 ### 3. Patrol Pattern Analysis
-\[
+$$
 \text{Linear Pattern}: \text{Coverage} = L \cdot 2R_{detection}
-\]
-\[
+$$
+$$
 \text{Circular Pattern}: \text{Coverage} = \pi \cdot R_{patrol}^2
-\]
-\[
+$$
+$$
 \text{Random Pattern}: \text{Coverage} = A_{area} \cdot (1 - e^{-\lambda t})
-\]
+$$
 
 ### 4. Time-Based Detection
-\[
+$$
 P_{detection}(t) = P_{max} \cdot \left(1 - e^{-\frac{t}{t_{characteristic}}}\right)
-\]
+$$
 
 ---
 

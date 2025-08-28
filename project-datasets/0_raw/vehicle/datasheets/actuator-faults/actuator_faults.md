@@ -108,34 +108,34 @@ actuator_id,fault_type,start_time_s,end_time_s,severity,notes
 ## Mathematical Models
 
 ### 1. Stuck Fault Model
-\[
+$$
 u(t) = u_{stuck} \quad \text{for} \quad t \in [t_{start}, t_{end}]
-\]
+$$
 
 Where:
-- \(u(t)\) = Actuator output
-- \(u_{stuck}\) = Stuck position value
-- \(t_{start}, t_{end}\) = Fault duration
+- $u(t)$ = Actuator output
+- $u_{stuck}$ = Stuck position value
+- $t_{start}, t_{end}$ = Fault duration
 
 ### 2. Drift Fault Model
-\[
+$$
 u(t) = u_{cmd}(t) + \alpha \cdot (t - t_{start}) \quad \text{for} \quad t \in [t_{start}, t_{end}]
-\]
+$$
 
 Where:
-- \(u_{cmd}(t)\) = Commanded input
-- \(\alpha\) = Drift rate (function of severity)
-- \(t_{start}\) = Fault initiation time
+- $u_{cmd}(t)$ = Commanded input
+- $\alpha$ = Drift rate (function of severity)
+- $t_{start}$ = Fault initiation time
 
 ### 3. Noise Fault Model
-\[
+$$
 u(t) = u_{cmd}(t) + \beta \cdot \sin(\omega t + \phi) \quad \text{for} \quad t \in [t_{start}, t_{end}]
-\]
+$$
 
 Where:
-- \(\beta\) = Noise amplitude (function of severity)
-- \(\omega\) = Noise frequency
-- \(\phi\) = Random phase
+- $\beta$ = Noise amplitude (function of severity)
+- $\omega$ = Noise frequency
+- $\phi$ = Random phase
 
 ---
 
