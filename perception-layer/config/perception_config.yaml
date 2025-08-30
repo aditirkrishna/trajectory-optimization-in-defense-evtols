@@ -1,0 +1,236 @@
+# Perception Layer Configuration
+# This file defines all parameters for the eVTOL perception and environment layer
+
+# =============================================================================
+# COORDINATE REFERENCE SYSTEM (CRS) SETTINGS
+# =============================================================================
+coordinate_system:
+  # Working CRS for all processing (UTM zone or local ENU)
+  working_crs: "EPSG:32632"  # UTM Zone 32N (adjust for your region)
+  
+  # Original CRS of input data (will be transformed to working_crs)
+  input_crs: "EPSG:4326"  # WGS84 (most common input format)
+  
+  # Vertical datum for elevation data
+  vertical_datum: "WGS84"  # or "NAVD88" for North America
+  
+  # Units for all calculations
+  units:
+    distance: "meters"
+    elevation: "meters"
+    temperature: "celsius"
+    wind_speed: "m/s"
+    pressure: "hPa"
+    density: "kg/m³"
+
+# =============================================================================
+# SPATIAL RESOLUTION AND TILING
+# =============================================================================
+spatial:
+  # Base spatial resolution for all raster processing
+  base_resolution: 2.0  # meters (1-10m for urban, 10-30m for regional)
+  
+  # Tile size for processing and serving
+  tile_size: 512  # pixels (512x512 tiles)
+  
+  # Altitude bands for 3D processing (meters)
+  altitude_bands: [0, 10, 25, 50, 100, 200, 500, 1000]
+  
+  # Buffer zone around mission area (meters)
+  mission_buffer: 1000
+
+# =============================================================================
+# DATA PROCESSING PARAMETERS
+# =============================================================================
+processing:
+  # Interpolation methods
+  interpolation:
+    elevation: "cubic"  # cubic, linear, nearest
+    wind: "linear"
+    temperature: "linear"
+  
+  # Gap filling parameters
+  gap_filling:
+    max_gap_size: 10  # pixels
+    method: "spline"  # spline, kriging, nearest
+  
+  # Smoothing parameters
+  smoothing:
+    elevation_kernel: 3  # 3x3 window
+    wind_kernel: 5      # 5x5 window
+    apply_smoothing: true
+  
+  # Quality control thresholds
+  quality_control:
+    max_elevation_change: 100  # meters between adjacent cells
+    min_data_coverage: 0.95   # 95% of cells must have data
+    outlier_threshold: 3.0    # standard deviations
+
+# =============================================================================
+# TERRAIN AND GEOMETRY PARAMETERS
+# =============================================================================
+terrain:
+  # Slope calculation parameters
+  slope:
+    method: "horn"  # horn, zevenbergen, central_differences
+    window_size: 3
+  
+  # Roughness calculation
+  roughness:
+    window_size: 10  # 10x10 window for roughness
+    method: "std_dev"  # standard deviation of elevation
+  
+  # Obstacle detection
+  obstacles:
+    min_height: 2.0  # meters (objects > 2m are obstacles)
+    clearance_distance: 5.0  # meters from obstacles
+
+# =============================================================================
+# URBAN AND BUILDING PARAMETERS
+# =============================================================================
+urban:
+  # Building processing
+  buildings:
+    min_height: 3.0  # meters (minimum building height)
+    shadow_angle: 45  # degrees (for shadow calculation)
+    occlusion_resolution: 1.0  # meters (for radar occlusion)
+  
+  # Urban canyon effects
+  canyon:
+    min_aspect_ratio: 2.0  # height/width ratio for canyon effect
+    wind_reduction_factor: 0.5  # wind speed reduction in canyons
+
+# =============================================================================
+# ATMOSPHERIC PARAMETERS
+# =============================================================================
+atmosphere:
+  # Wind field parameters
+  wind:
+    temporal_resolution: 600  # seconds (10 minutes)
+    vertical_layers: [0, 10, 25, 50, 100, 200, 500, 1000]  # meters
+    gust_model: "dryden"  # dryden, von_karman, empirical
+  
+  # Turbulence parameters
+  turbulence:
+    intensity_model: "empirical"
+    base_ti: 0.1  # base turbulence intensity (10%)
+    gust_factor: 1.5  # gust factor for wind speed
+  
+  # Air density calculation
+  air_density:
+    use_standard_atmosphere: true
+    temperature_offset: 0.0  # degrees C
+    pressure_offset: 0.0     # hPa
+
+# =============================================================================
+# THREAT AND RISK PARAMETERS
+# =============================================================================
+threats:
+  # Radar detection
+  radar:
+    detection_model: "radar_equation"  # radar_equation, heuristic
+    rcs_default: -10.0  # dBsm (default radar cross section)
+    snr_threshold: 10.0  # dB (signal-to-noise ratio threshold)
+  
+  # Patrol detection
+  patrols:
+    detection_range: 5000  # meters
+    temporal_resolution: 60  # seconds (1 minute)
+    coverage_overlap: 0.1  # 10% overlap between patrols
+  
+  # Electronic warfare zones
+  ew_zones:
+    gps_degradation: 0.5  # 50% GPS accuracy reduction
+    comm_degradation: 0.3  # 30% communication degradation
+
+# =============================================================================
+# DATA FUSION PARAMETERS
+# =============================================================================
+fusion:
+  # Layer stacking
+  layers:
+    static: ["elevation", "slope", "roughness", "obstacles", "buildings", "landcover"]
+    dynamic: ["wind_u", "wind_v", "turbulence", "air_density", "temperature"]
+    threat: ["detection_prob", "comm_degradation", "gps_reliability"]
+  
+  # Uncertainty handling
+  uncertainty:
+    propagate_uncertainty: true
+    ensemble_size: 10  # number of ensemble members
+    confidence_level: 0.95  # 95% confidence interval
+
+# =============================================================================
+# SERVING AND API PARAMETERS
+# =============================================================================
+serving:
+  # Tile serving
+  tiles:
+    format: "COG"  # Cloud-optimized GeoTIFF
+    compression: "LZW"
+    overview_levels: [2, 4, 8, 16]
+  
+  # API settings
+  api:
+    host: "localhost"
+    port: 8000
+    max_workers: 4
+    timeout: 30  # seconds
+  
+  # Caching
+  cache:
+    type: "redis"  # redis, file, memory
+    ttl: 3600  # seconds (1 hour)
+    max_size: "1GB"
+
+# =============================================================================
+# DATA GOVERNANCE AND VERSIONING
+# =============================================================================
+governance:
+  # Versioning
+  versioning:
+    use_dvc: true
+    use_git_annex: false
+    processing_version: "v1.0.0"
+  
+  # Provenance tracking
+  provenance:
+    track_sources: true
+    track_processing: true
+    metadata_format: "json"
+  
+  # Quality control
+  quality:
+    generate_reports: true
+    report_frequency: "weekly"
+    alert_threshold: 0.9  # 90% quality threshold
+
+# =============================================================================
+# FILE FORMATS AND STORAGE
+# =============================================================================
+formats:
+  # Raster formats
+  raster:
+    elevation: "COG"
+    wind: "NetCDF"
+    derived: "COG"
+  
+  # Vector formats
+  vector:
+    buildings: "GeoJSON"
+    airspace: "GeoJSON"
+    waypoints: "GeoJSON"
+  
+  # Point cloud formats
+  point_cloud:
+    lidar: "LAZ"
+    survey: "LAS"
+
+# =============================================================================
+# LOGGING AND DEBUGGING
+# =============================================================================
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  file: "logs/perception_layer.log"
+  max_file_size: "10MB"
+  backup_count: 5
+
