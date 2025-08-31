@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Perception and Environment Layer is the first of four layers in the eVTOL defense system. It produces spatiotemporal maps that the planner can query at runtime, including:
+The Perception and Environment Layer is the first of four layers in trajectory optimization in the eVTOL defense system. It produces spatiotemporal maps that the planner can query at runtime, including:
 
 - **Terrain and obstacles**: Elevation, slope, roughness, building footprints
 - **Atmospheric conditions**: Wind fields, turbulence, air density, temperature
@@ -283,32 +283,6 @@ flake8 src/
 # Type checking
 mypy src/
 ```
-
-### Adding New Features
-1. Create feature branch
-2. Add tests in `tests/`
-3. Implement in `src/`
-4. Update documentation
-5. Submit pull request
-
-## Contributing
-
-1. Fork the repository
-2. Create feature branch
-3. Make changes with tests
-4. Ensure all tests pass
-5. Submit pull request
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Support
-
-- **Documentation**: See `docs/` directory
-- **Issues**: Report bugs on GitHub
-- **Discussions**: Use GitHub Discussions for questions
-- **Email**: perception@evtol-defense.com
 
 ## Acknowledgments
 
