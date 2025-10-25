@@ -1,0 +1,114 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Testing
+.pytest_cache/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+.tox/
+.nox/
+.hypothesis/
+
+# Type checking
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pytype/
+.pyre/
+
+# Jupyter
+.ipynb_checkpoints
+*.ipynb
+
+# Documentation
+docs/_build/
+docs/_static/
+docs/_templates/
+
+# Data files (large datasets)
+*.tif
+*.tiff
+*.nc
+*.hdf5
+*.h5
+*.las
+*.laz
+*.zarr
+
+# Temporary files
+*.tmp
+*.log
+*.bak
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# MLflow
+mlruns/
+mlflow.db
+
+# Weights & Biases
+wandb/
+
+# Output files
+outputs/
+results/
+figures/
+*.png
+*.pdf
+*.svg
+!architecture/*.png
+
+# Cache
+.cache/
+*.cache
+
+# Compiled C extensions
+*.c
+*.cpp
+*.pyd
+*.pyo
+
+# Distribution / packaging
+.Python
+env/
+build/
+
