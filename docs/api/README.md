@@ -41,5 +41,3 @@ python -m sphinx docs/api/perception/ docs/_build/html/perception
 ### Control Layer
 - Flight controller APIs
 - Trajectory generation APIs
-
-
